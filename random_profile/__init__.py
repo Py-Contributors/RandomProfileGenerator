@@ -60,7 +60,7 @@ class RandomProfile:
         for _ in range(self.num):
             first = random.choice(fname)
             last = random.choice(lname)
-            phone = f'+ +1-{random.randint(300, 500)}{random.randint(800, 999)}{random.randint(1000,9999)}'
+            phone = f'+ +{random.randint(1, 999)}-{random.randint(300, 500)}{random.randint(800, 999)}{random.randint(1000,9999)}'
 
             street_num = random.randint(100, 999)
             street = random.choice(street_names)
