@@ -17,6 +17,7 @@ from random_profile.utils import \
     generate_random_height_weight, \
     generate_random_gender, \
     generate_random_card, \
+    generate_random_job_level, \
     ASSETS_DIR
 
 lname_txt = os.path.join(ASSETS_DIR, "lnames.txt")
@@ -28,6 +29,7 @@ street_names_txt = os.path.join(ASSETS_DIR, "street_names.txt")
 cities_name_txt = os.path.join(ASSETS_DIR, "cities_name.txt")
 states_names_txt = os.path.join(ASSETS_DIR, "states_names.txt")
 job_titles_txt = os.path.join(ASSETS_DIR, "job_titles.txt")
+job_levels_txt = os.path.join(ASSETS_DIR, "job_levels.txt")
 
 # loading data from txt files
 lname = load_txt_file(lname_txt)
@@ -39,6 +41,7 @@ states_names = load_txt_file(states_names_txt)
 cities_name = load_txt_file(cities_name_txt)
 street_names = load_txt_file(street_names_txt)
 job_titles = load_txt_file(job_titles_txt)
+job_levels = load_txt_file(job_levels_txt)
 
 class RandomProfile(object):
     def __init__(self, num: int = 1, gender: Gender = None):
@@ -108,12 +111,14 @@ class RandomProfile(object):
             blood_type = random.choice(blood_types)
             full_name = first + ' ' + last
             phone = f'+1-{random.randint(300, 500)}-{random.randint(800, 999)}-{random.randint(1000,9999)}'
-            job_title = random.choice(job_titles)
-            ip_address = ipv4_gen()
 
+            ip_address = ipv4_gen()
 
             dob, age = generate_dob_age()
             height, weight = generate_random_height_weight()
+
+            job_title = random.choice(job_titles)
+            job_experience = generate_random_job_level(age, job_levels)
 
             street_num = random.randint(100, 999)
             street = random.choice(street_names)
@@ -145,6 +150,7 @@ class RandomProfile(object):
             profile_dict['address'] = address
             profile_dict['email'] = email
             profile_dict['job_title'] = job_title
+            profile_dict['job_job_experience'] = job_experience
             profile_dict['ip_address'] = ip_address
             profile_dict['mother'] = mother
             profile_dict['father'] = father

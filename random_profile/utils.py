@@ -87,3 +87,9 @@ def generate_random_card() -> dict:
 
     return card
 
+
+def generate_random_job_level(age: int, levels) -> str:
+    levels_with_ranges = [level.split(' ') for level in levels]
+    applicable_level = list(filter(lambda level: (int(level[1]) <= age <= int(level[2])), levels_with_ranges))
+
+    return applicable_level[0][0]
