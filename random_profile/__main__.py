@@ -1,37 +1,51 @@
-from audiobook.main import RandomProfile
+from main import RandomProfile
 import argparse
-
+from enums.gender import Gender
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-n", help="Number of random profiles", type=int, default=1)
 
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument(
+    gender_arg_group = parser.add_mutually_exclusive_group()
+    gender_arg_group.add_argument(
+        "-ma",
+        "--male",
+        help="Get only male profiles",
+        action="store_true"
+    )
+    gender_arg_group.add_argument(
+        "-fe",
+        "--female",
+        help="Get only female profiles",
+        action="store_true"
+    )
+
+    output_form_arg_group = parser.add_mutually_exclusive_group()
+    output_form_arg_group.add_argument(
         "-f",
         "--fullname",
         help="Get full name instead of first name",
         action="store_true",
     )
-    group.add_argument(
+    output_form_arg_group.add_argument(
         "-p",
         "--profile",
         help="Get full profile instead of first name",
         action="store_true",
     )
-    group.add_argument(
+    output_form_arg_group.add_argument(
         "-l",
         "--lastname",
         help="Get last name instead of first name",
         action="store_true",
     )
-    group.add_argument(
+    output_form_arg_group.add_argument(
         "-ip",
         "--ipv4",
         help="Get an ipv4 IP address",
         action="store_true",
     )
-    group.add_argument(
+    output_form_arg_group.add_argument(
         "-j",
         "--jobtitle",
         help="Get job title",
@@ -40,7 +54,13 @@ def main():
 
     args = parser.parse_args()
 
-    rp = RandomProfile(args.n)
+    gender = None
+    if args.male:
+        gender = Gender.MALE
+    elif args.female:
+        gender = Gender.FEMALE
+
+    rp = RandomProfile(args.n, gender)
     if args.fullname:
         print(*rp.full_name(), sep="\n")
     elif args.profile:

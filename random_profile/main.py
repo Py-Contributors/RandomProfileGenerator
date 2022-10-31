@@ -9,14 +9,12 @@ import os
 import uuid
 import random
 
-from random_profile.utils import ipv4_gen
-from random_profile.utils import load_txt_file
-from random_profile.utils import generate_dob_age
-from random_profile.utils import generate_random_height_weight
-from random_profile.utils import ASSETS_DIR
+from enums.gender import Gender
+from random_profile.utils import ipv4_gen, load_txt_file, generate_dob_age, generate_random_height_weight, generate_random_gender, ASSETS_DIR
 
-fname_txt = os.path.join(ASSETS_DIR, "fnames.txt")
 lname_txt = os.path.join(ASSETS_DIR, "lnames.txt")
+fname_male_txt = os.path.join(ASSETS_DIR, "fnames_male.txt")
+fname_female_txt = os.path.join(ASSETS_DIR, "fnames_female.txt")
 hair_colors_txt = os.path.join(ASSETS_DIR, "hair_colors.txt")
 blood_types_txt = os.path.join(ASSETS_DIR, "blood_types.txt")
 street_names_txt = os.path.join(ASSETS_DIR, "street_names.txt")
@@ -25,8 +23,9 @@ states_names_txt = os.path.join(ASSETS_DIR, "states_names.txt")
 job_titles_txt = os.path.join(ASSETS_DIR, "job_titles.txt")
 
 # loading data from txt files
-fname = load_txt_file(fname_txt)
 lname = load_txt_file(lname_txt)
+fname_male = load_txt_file(fname_male_txt)
+fname_female = load_txt_file(fname_female_txt)
 hair_colors = load_txt_file(hair_colors_txt)
 blood_types = load_txt_file(blood_types_txt)
 states_names = load_txt_file(states_names_txt)
@@ -34,42 +33,69 @@ cities_name = load_txt_file(cities_name_txt)
 street_names = load_txt_file(street_names_txt)
 job_titles = load_txt_file(job_titles_txt)
 
-
 class RandomProfile(object):
-    def __init__(self, num: int = 1):
-        '''
+    def __init__(self, num: int = 1, gender: Gender = None):
+        """
         num = Total No. of Name You Want To Print
         default is 1
         To Print More Than one Name Change value of num
-        '''
+        """
         self.num = num
+        self.gender = gender
 
-    def first_name(self, num: int = None) -> list:
+    def first_name(self, num: int = None, gender: Gender = None) -> list:
         if num is None:
             num = self.num
-        first_name_list = [random.choice(fname) for _ in range(num)]
+        if gender is None:
+            gender = self.gender
+
+        if gender is None:
+            names = fname_female + fname_male
+        elif gender.value == Gender.MALE.value:
+            names = fname_male
+        else:
+            names = fname_female
+
+        first_name_list = [random.choice(names) for _ in range(num)]
         return first_name_list
 
     def last_name(self, num: int = None) -> list:
         if num is None:
             num = self.num
+
         last_name_list = [random.choice(lname) for _ in range(num)]
         return last_name_list
 
-    def full_name(self, num: int = None) -> list:
+    def full_name(self, num: int = None, gender: Gender = None) -> list:
         if num is None:
             num = self.num
-        full_name_list = [random.choice(
-            fname) + ' ' + random.choice(lname) for _ in range(num)]
+
+        if gender is None:
+            gender = self.gender
+
+        if gender is None:
+            names = fname_female + fname_male
+        elif gender.value == Gender.MALE.value:
+            names = fname_male
+        else:
+            names = fname_female
+
+        full_name_list = [random.choice(names) + ' ' + random.choice(lname) for _ in range(num)]
         return full_name_list
 
-    def full_profile(self, num: int = None) -> list:
+    def full_profile(self, num: int = None, gender: Gender = None) -> list:
         if num is None:
             num = self.num
+
         profile_list = []
+
         for _ in range(num):
             unique_id = uuid.uuid4().hex
-            first = random.choice(fname)
+
+            # random gender for every profile in list
+            this_gender = generate_random_gender() if gender is None else gender
+            first = random.choice(fname_male if this_gender.value == Gender.MALE.value else fname_female)
+
             last = random.choice(lname)
             hair_color = random.choice(hair_colors)
             blood_type = random.choice(blood_types)
@@ -92,6 +118,7 @@ class RandomProfile(object):
 
             profile_dict = {}
             profile_dict['id'] = unique_id
+            profile_dict['gender'] = this_gender.value
             profile_dict['first_name'] = first
             profile_dict['last_name'] = last
             profile_dict['hair_color'] = hair_color

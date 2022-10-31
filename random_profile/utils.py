@@ -1,11 +1,16 @@
 from datetime import datetime
+from random_profile.enums.gender import Gender
 import random
 import os
 import logging
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(ROOT_DIR, "random_profile", "assets")
+
 logging.basicConfig(filename='log/example.log', encoding='utf-8', level=logging.DEBUG)
+
+def generate_random_gender() -> Gender:
+    return random.choice(list(Gender))
 
 
 def load_txt_file(file_name: str) -> list:
@@ -26,7 +31,7 @@ def load_txt_file(file_name: str) -> list:
 
 
 def ipv4_gen() -> str:
-    return f"{random.randint(0,255)}.{random.randint(0,255)}.{random.randint(0,255)}.{random.randint(0,255)}"
+    return f"{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}"
 
 
 def generate_dob_age() -> tuple:
@@ -45,7 +50,7 @@ def generate_dob_age() -> tuple:
     age = (datetime.now() - dob).days // 365
     dob = dob.strftime("%d/%m/%Y")
 
-    return (dob, age)
+    return dob, age
 
 
 def generate_random_height_weight() -> tuple:
