@@ -53,7 +53,7 @@ class RandomProfile(object):
         self.num = num
         self.gender = gender
 
-    def first_name(self, num: int = None, gender: Gender = None) -> list:
+    def first_names(self, num: int = None, gender: Gender = None) -> list:
         if num is None:
             num = self.num
         if gender is None:
@@ -69,14 +69,14 @@ class RandomProfile(object):
         first_name_list = [random.choice(names) for _ in range(num)]
         return first_name_list
 
-    def last_name(self, num: int = None) -> list:
+    def last_names(self, num: int = None) -> list:
         if num is None:
             num = self.num
 
         last_name_list = [random.choice(lname) for _ in range(num)]
         return last_name_list
 
-    def full_name(self, num: int = None, gender: Gender = None) -> list:
+    def full_names(self, num: int = None, gender: Gender = None) -> list:
         if num is None:
             num = self.num
 
@@ -93,7 +93,7 @@ class RandomProfile(object):
         full_name_list = [random.choice(names) + ' ' + random.choice(lname) for _ in range(num)]
         return full_name_list
 
-    def full_profile(self, num: int = None, gender: Gender = None) -> list:
+    def full_profiles(self, num: int = None, gender: Gender = None) -> list:
         if num is None:
             num = self.num
 
@@ -129,8 +129,8 @@ class RandomProfile(object):
             address = f'{street_num} {street} St. {city} {state} {zip_code}'
             email = first.lower() + last.lower() + '@example.com'
 
-            mother = self.first_name(1, Gender.FEMALE)[0] + ' ' + last
-            father = self.first_name(1, Gender.MALE)[0] + ' ' + last
+            mother = self.first_names(1, Gender.FEMALE)[0] + ' ' + last
+            father = self.first_names(1, Gender.MALE)[0] + ' ' + last
 
             card = generate_random_card()
 

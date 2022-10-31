@@ -5,6 +5,7 @@ from enums.gender import Gender
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-n", help="Number of random profiles", type=int, default=1)
+    parser.add_argument("-log", help="Path of log file (logging disabled if not selected)", type=str, default=None)
 
     gender_arg_group = parser.add_mutually_exclusive_group()
     gender_arg_group.add_argument(
@@ -23,20 +24,20 @@ def main():
     output_form_arg_group = parser.add_mutually_exclusive_group()
     output_form_arg_group.add_argument(
         "-f",
-        "--fullname",
-        help="Get full name instead of first name",
-        action="store_true",
-    )
-    output_form_arg_group.add_argument(
-        "-p",
-        "--profile",
-        help="Get full profile instead of first name",
+        "--firstname",
+        help="Get only first name",
         action="store_true",
     )
     output_form_arg_group.add_argument(
         "-l",
         "--lastname",
         help="Get last name instead of first name",
+        action="store_true",
+    )
+    output_form_arg_group.add_argument(
+        "-F",
+        "--fullname",
+        help="Get full name instead of first name",
         action="store_true",
     )
     output_form_arg_group.add_argument(
@@ -51,6 +52,12 @@ def main():
         help="Get job title",
         action="store_true",
     )
+    output_form_arg_group.add_argument(
+        "-p",
+        "--profile",
+        help="Get full profile instead of first name",
+        action="store_true",
+    )
 
     args = parser.parse_args()
 
@@ -62,11 +69,11 @@ def main():
 
     rp = RandomProfile(args.n, gender)
     if args.fullname:
-        print(*rp.full_name(), sep="\n")
+        print(*rp.full_names(), sep="\n")
     elif args.profile:
-        print(*rp.full_profile(), sep="\n")
+        print(*rp.full_profiles(), sep="\n")
     elif args.lastname:
-        print(*rp.last_name(), sep="\n")
+        print(*rp.last_names(), sep="\n")
     elif args.jobtitle:
         print(*rp.job_title(), sep="\n")
     elif args.ipv4:
