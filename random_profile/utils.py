@@ -9,6 +9,7 @@ ASSETS_DIR = os.path.join(ROOT_DIR, "random_profile", "assets")
 
 logging.basicConfig(filename='log/example.log', encoding='utf-8', level=logging.DEBUG)
 
+
 def generate_random_gender() -> Gender:
     return random.choice(list(Gender))
 
@@ -67,4 +68,22 @@ def generate_random_height_weight() -> tuple:
         weight = random.randint(80, 100)
     elif height <= 200:
         weight = random.randint(90, 110)
-    return (height, weight)
+    return height, weight
+
+
+def generate_random_card() -> dict:
+    card_type = random.choice(("Credit", "Debit"))
+    number = f"{random.randint(1, 9999):04}-{random.randint(1, 9999):04}-{random.randint(1, 9999):04}-{random.randint(1, 9999):04}"
+
+    expiration_year = random.randint(datetime.today().year, datetime.today().year + 10)
+    expiration_month = random.randint(1, 12)
+    expiration = f"{expiration_month:02}/{str(expiration_year)[-2:]}"
+
+    card = {
+        "type": card_type,
+        "number": number,
+        "expiration": expiration
+    }
+
+    return card
+

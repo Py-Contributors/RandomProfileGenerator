@@ -10,7 +10,14 @@ import uuid
 import random
 
 from enums.gender import Gender
-from random_profile.utils import ipv4_gen, load_txt_file, generate_dob_age, generate_random_height_weight, generate_random_gender, ASSETS_DIR
+from random_profile.utils import \
+    ipv4_gen, \
+    load_txt_file, \
+    generate_dob_age, \
+    generate_random_height_weight, \
+    generate_random_gender, \
+    generate_random_card, \
+    ASSETS_DIR
 
 lname_txt = os.path.join(ASSETS_DIR, "lnames.txt")
 fname_male_txt = os.path.join(ASSETS_DIR, "fnames_male.txt")
@@ -104,6 +111,7 @@ class RandomProfile(object):
             job_title = random.choice(job_titles)
             ip_address = ipv4_gen()
 
+
             dob, age = generate_dob_age()
             height, weight = generate_random_height_weight()
 
@@ -115,6 +123,11 @@ class RandomProfile(object):
 
             address = f'{street_num} {street} St. {city} {state} {zip_code}'
             email = first.lower() + last.lower() + '@example.com'
+
+            mother = self.first_name(1, Gender.FEMALE)[0] + ' ' + last
+            father = self.first_name(1, Gender.MALE)[0] + ' ' + last
+
+            card = generate_random_card()
 
             profile_dict = {}
             profile_dict['id'] = unique_id
@@ -133,6 +146,10 @@ class RandomProfile(object):
             profile_dict['email'] = email
             profile_dict['job_title'] = job_title
             profile_dict['ip_address'] = ip_address
+            profile_dict['mother'] = mother
+            profile_dict['father'] = father
+            profile_dict['payment_card'] = card
+
             profile_list.append(profile_dict)
 
         return profile_list
