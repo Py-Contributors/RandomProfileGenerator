@@ -10,7 +10,7 @@ import uuid
 import random
 
 from enums.gender import Gender
-from random_profile.utils import \
+from utils import \
     ipv4_gen, \
     load_txt_file, \
     generate_dob_age, \

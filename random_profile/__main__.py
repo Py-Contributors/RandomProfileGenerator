@@ -5,7 +5,7 @@ from enums.gender import Gender
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-n", help="Number of random profiles", type=int, default=1)
-    parser.add_argument("-log", help="Path of log file (logging disabled if not selected)", type=str, default=None)
+    # parser.add_argument("-log", help="Path of log file (logging disabled if not selected)", type=str, default=None)
 
     gender_arg_group = parser.add_mutually_exclusive_group()
     gender_arg_group.add_argument(

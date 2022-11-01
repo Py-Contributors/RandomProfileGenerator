@@ -1,5 +1,5 @@
 from datetime import datetime
-from random_profile.enums.gender import Gender
+from enums.gender import Gender
 import random
 import os
 import logging
@@ -9,7 +9,6 @@ ASSETS_DIR = os.path.join(ROOT_DIR, "random_profile", "assets")
 
 os.makedirs('log', exist_ok=True)
 logging.basicConfig(filename='log/example.log', encoding='utf-8', level=logging.DEBUG)
-
 
 def generate_random_gender() -> Gender:
     return random.choice(list(Gender))
