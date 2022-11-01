@@ -1,3 +1,4 @@
+import math
 from datetime import datetime
 from enums.gender import Gender
 import random
@@ -6,6 +7,8 @@ import logging
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(ROOT_DIR, "random_profile", "assets")
+# radius of the earh in meters
+M_PER_DEGREE = 111319.5
 
 os.makedirs('log', exist_ok=True)
 logging.basicConfig(filename='log/example.log', encoding='utf-8', level=logging.DEBUG)
@@ -87,9 +90,31 @@ def generate_random_card() -> dict:
 
     return card
 
-
 def generate_random_job_level(age: int, levels) -> str:
     levels_with_ranges = [level.split(' ') for level in levels]
     applicable_level = list(filter(lambda level: (int(level[1]) <= age <= int(level[2])), levels_with_ranges))
 
     return applicable_level[0][0]
+
+def random_coords_from_point(lat: float, lon: float, max_distance: float = 1000) -> tuple:
+    angle = random.random() * 2 * math.pi
+    offset = random.random() * max_distance
+
+    lat_ = lat + math.cos(angle) * offset / M_PER_DEGREE
+    lon_ = lon + math.sin(angle) * offset / M_PER_DEGREE
+
+    return lat_, lon_
+
+def generate_random_city_coords(cities) -> tuple:
+    city = random.choice(cities)
+
+    city_data = city.split(';')
+
+    name = city_data[0]
+    lat = float(city_data[1])
+    lon = float(city_data[2])
+
+    coords = random_coords_from_point(lat, lon)
+    return name, coords
+
+# def coords_string (coords: tuple) -> str:
