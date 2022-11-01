@@ -19,6 +19,7 @@ from utils import \
     generate_random_card, \
     generate_random_job_level, \
     generate_random_city_coords, \
+    coords_string, \
     ASSETS_DIR
 
 lname_txt = os.path.join(ASSETS_DIR, "lnames.txt")
@@ -124,6 +125,7 @@ class RandomProfile(object):
             street_num = random.randint(100, 999)
             street = random.choice(street_names)
             city, coords = generate_random_city_coords(cities_name)
+            coords_pretty = coords_string(coords)
             state = random.choice(states_names)
             zip_code = random.randint(10000, 99999)
 
@@ -149,7 +151,7 @@ class RandomProfile(object):
             profile_dict['weight'] = weight
             profile_dict['phone'] = phone
             profile_dict['address'] = address
-            profile_dict['coordinates'] = coords
+            profile_dict['coordinates'] = coords_pretty
             profile_dict['email'] = email
             profile_dict['job_title'] = job_title
             profile_dict['job_job_experience'] = job_experience

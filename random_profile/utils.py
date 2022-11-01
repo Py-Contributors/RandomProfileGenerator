@@ -117,4 +117,14 @@ def generate_random_city_coords(cities) -> tuple:
     coords = random_coords_from_point(lat, lon)
     return name, coords
 
-# def coords_string (coords: tuple) -> str:
+def decdeg2dms(dd):
+    mult = -1 if dd < 0 else 1
+    mnt,sec = divmod(abs(dd)*3600, 60)
+    deg,mnt = divmod(mnt, 60)
+    return mult*deg, mult*mnt, mult*sec
+
+def coords_string (coords: tuple) -> str:
+    dms_lat = decdeg2dms(abs(coords[0]))
+    dms_lon = decdeg2dms(abs(coords[1]))
+
+    return f"{dms_lat[0]:.0f}° {dms_lat[1]:.0f}' {dms_lat[2]:.4f}'' {'N' if coords[0] > 0 else 'S'} {dms_lon[0]:.0f}° {dms_lon[1]:.0f}' {dms_lon[2]:.4f}'' {'E' if coords[1] > 0 else 'W'}"
