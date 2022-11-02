@@ -11,7 +11,7 @@ ASSETS_DIR = os.path.join(ROOT_DIR, "random_profile", "assets")
 M_PER_DEGREE = 111319.5
 
 os.makedirs('log', exist_ok=True)
-logging.basicConfig(filename='log/example.log', encoding='utf-8', level=logging.DEBUG)
+# logging.basicConfig(filename='log/example.log', encoding='utf-8', level=logging.DEBUG)
 
 def generate_random_gender() -> Gender:
     return random.choice(list(Gender))
@@ -91,10 +91,11 @@ def generate_random_card() -> dict:
     return card
 
 def generate_random_job_level(age: int, levels) -> str:
-    levels_with_ranges = [level.split(' ') for level in levels]
+    levels_with_ranges = [level.split(';') for level in levels]
     applicable_level = list(filter(lambda level: (int(level[1]) <= age <= int(level[2])), levels_with_ranges))
 
     return applicable_level[0][0]
+
 
 def random_coords_from_point(lat: float, lon: float, max_distance: float = 1000) -> tuple:
     angle = random.random() * 2 * math.pi
