@@ -10,17 +10,7 @@ import uuid
 import random
 
 from enums.gender import Gender
-from utils import \
-    ipv4_gen, \
-    load_txt_file, \
-    generate_dob_age, \
-    generate_random_height_weight, \
-    generate_random_gender, \
-    generate_random_card, \
-    generate_random_job_level, \
-    generate_random_city_coords, \
-    coords_string, \
-    ASSETS_DIR
+from utils import *
 
 lname_txt = os.path.join(ASSETS_DIR, "lnames.txt")
 fname_male_txt = os.path.join(ASSETS_DIR, "fnames_male.txt")

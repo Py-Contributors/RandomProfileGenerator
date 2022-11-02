@@ -1,5 +1,6 @@
-from main import RandomProfile
 import argparse
+
+from main import RandomProfile
 from enums.gender import Gender
 
 def main():

@@ -1,8 +1,10 @@
 import unittest
+import re
 
 from main import RandomProfile
-random_profile = RandomProfile(num=1)
+from utils import *
 
+random_profile = RandomProfile(num=1)
 
 class RandomProfileTest(unittest.TestCase):
     def test_fname(self):
@@ -41,6 +43,16 @@ class RandomProfileTest(unittest.TestCase):
     def test_job_title_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).job_title()), 10)
 
+    # my tests
+    def test_ipv4_format(self):
+        ipv4 = ipv4_gen()
+        reg = re.search("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.(?!$)|$)){4}$", ipv4)
+
+        self.assertIsNotNone(reg)
+
+    def test_gender_male(self):
+
+    def test_gender_female(self):
 
 if __name__ == "__main__":
     unittest.main()
