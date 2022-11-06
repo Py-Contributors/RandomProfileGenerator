@@ -83,7 +83,7 @@ class RandomProfileTest(unittest.TestCase):
         profiles = random_profile.full_profiles(100, gender=Gender.FEMALE)
         female_names = list(filter(lambda profile: profile["first_name"] in fname_female, profiles))
 
-        self.assertEqual(len(profiles), len(female_names))
+        self.assertCountEqual(profiles, female_names)
 
     def test_height_range(self):
         height, weight = generate_random_height_weight()
