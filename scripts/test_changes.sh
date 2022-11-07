@@ -14,10 +14,8 @@ check_command git
 check_command pytest
 check_command flake8
 
-# run flask8 and pytest
-
-flake8 
-pytest -e 
+flake8 . --isolated --exclude=.cache,.venv,.svn,CVS,.bzr,.hg,.git,__pycache__,.tox,**/migrations/** --ignore=E501,E402
+pytest
 
 # check the exit code of the last command
 if [ $? -eq 0 ]; then

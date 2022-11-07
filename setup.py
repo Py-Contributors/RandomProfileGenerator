@@ -4,14 +4,18 @@ from glob import glob
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("requirements.txt", "r") as fh:
+    requirements = fh.read().splitlines()
+
 setuptools.setup(
     name="random_profile",
-    version="1.0.1",
+    version="2.0.0",
     author="Deepak Raj",
     author_email="deepak008@live.com",
     description="Generate Random Profile",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    install_requires=requirements,
     data_files=[('assets', glob('random_profile/assets/*'))],
     url="https://github.com/codePerfectPlus/Random-Profile-Generator",
     packages=setuptools.find_packages(),

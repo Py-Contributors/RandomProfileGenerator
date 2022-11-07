@@ -16,7 +16,7 @@ from random_profile.utils import generate_dob_age
 from random_profile.utils import generate_random_height_weight
 from random_profile.utils import ASSETS_DIR
 
-VERSION = '1.0.1'
+VERSION = '2.0.0'
 
 fname_txt = os.path.join(ASSETS_DIR, 'fnames.txt')
 lname_txt = os.path.join(ASSETS_DIR, 'lnames.txt')
