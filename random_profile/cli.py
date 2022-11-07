@@ -4,7 +4,8 @@ import argparse
 from pprint import pprint
 
 sys.path.append('.')
-from random_profile.main import RandomProfile, VERSION
+from random_profile.main import RandomProfile
+from random_profile.main import VERSION
 from random_profile.api import start_server
 
 parser = argparse.ArgumentParser()

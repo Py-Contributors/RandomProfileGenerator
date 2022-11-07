@@ -16,17 +16,17 @@ from random_profile.utils import generate_dob_age
 from random_profile.utils import generate_random_height_weight
 from random_profile.utils import ASSETS_DIR
 
-VERSION = "1.0.1"
+VERSION = '1.0.1'
 
-fname_txt = os.path.join(ASSETS_DIR, "fnames.txt")
-lname_txt = os.path.join(ASSETS_DIR, "lnames.txt")
-hair_colors_txt = os.path.join(ASSETS_DIR, "hair_colors.txt")
-blood_types_txt = os.path.join(ASSETS_DIR, "blood_types.txt")
-street_names_txt = os.path.join(ASSETS_DIR, "street_names.txt")
-cities_name_txt = os.path.join(ASSETS_DIR, "cities_name.txt")
-states_names_txt = os.path.join(ASSETS_DIR, "states_names.txt")
-job_titles_txt = os.path.join(ASSETS_DIR, "job_titles.txt")
-states_hash_json = os.path.join(ASSETS_DIR, "states_hash.json")
+fname_txt = os.path.join(ASSETS_DIR, 'fnames.txt')
+lname_txt = os.path.join(ASSETS_DIR, 'lnames.txt')
+hair_colors_txt = os.path.join(ASSETS_DIR, 'hair_colors.txt')
+blood_types_txt = os.path.join(ASSETS_DIR, 'blood_types.txt')
+street_names_txt = os.path.join(ASSETS_DIR, 'street_names.txt')
+cities_name_txt = os.path.join(ASSETS_DIR, 'cities_name.txt')
+states_names_txt = os.path.join(ASSETS_DIR, 'states_names.txt')
+job_titles_txt = os.path.join(ASSETS_DIR, 'job_titles.txt')
+states_hash_json = os.path.join(ASSETS_DIR, 'states_hash.json')
 
 # loading data from txt files
 fname = load_txt_file(fname_txt)
@@ -40,15 +40,15 @@ job_titles = load_txt_file(job_titles_txt)
 
 
 class RandomProfile(object):
-    """ Random Profile Generator """
+    ''' Random Profile Generator '''
     def __init__(self, num: int = 1):
         self.num = num
 
     def __str__(self) -> str:
-        return f"Random Profile Generator version {VERSION}"
+        return f'Random Profile Generator version {VERSION}'
 
     def __repr__(self) -> str:
-        return f"RandomProfile(num={self.num})"
+        return f'RandomProfile(num={self.num})'
 
     def __call__(self, num: int = None) -> List[dict]:
         return self.full_profile(num)
@@ -80,7 +80,7 @@ class RandomProfile(object):
     def full_name(self, num: int = None) -> List[str]:
         num = self.num if num is None else num
         if num == 1 or num is None:
-            return f"{random.choice(fname)} {random.choice(lname)}"
+            return f'{random.choice(fname)} {random.choice(lname)}'
         return [random.choice(fname) + ' ' + random.choice(lname) for _ in range(num)]
 
     def ip_address(self, num: int = None) -> List[str]:
@@ -130,11 +130,11 @@ class RandomProfile(object):
             zip_code = random.randint(10000, 99999)
 
             address = {
-                "street_num": street_num,
-                "street": street,
-                "city": city,
-                "state": state,
-                "zip_code": zip_code
+                'street_num': street_num,
+                'street': street,
+                'city': city,
+                'state': state,
+                'zip_code': zip_code
             }
             address_list.append(address)
 
