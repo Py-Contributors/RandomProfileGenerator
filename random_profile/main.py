@@ -104,10 +104,10 @@ class RandomProfile(object):
             full_name = first + ' ' + last
             phone = f'+1-{random.randint(300, 500)}-{random.randint(800, 999)}-{random.randint(1000,9999)}'
 
-            ip_address = ipv4_gen()
+            ip_address = utils.ipv4_gen()
 
-            dob, age = generate_dob_age()
-            height, weight = generate_random_height_weight()
+            dob, age = utils.generate_dob_age()
+            height, weight = utils.generate_random_height_weight()
 
             job_title = random.choice(job_titles)
             job_experience = utils.generate_random_job_level(age, job_levels)
@@ -155,7 +155,7 @@ class RandomProfile(object):
         return profile_list
 
     def ipv4(self) -> list:
-        ip_list = [ipv4_gen() for _ in range(self.num)]
+        ip_list = [utils.ipv4_gen() for _ in range(self.num)]
         return ip_list
 
     def job_title(self) -> list:

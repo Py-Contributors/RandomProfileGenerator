@@ -1,4 +1,5 @@
 import unittest
+import os
 
 from main import RandomProfile
 import utils
@@ -111,7 +112,7 @@ class RandomProfileTest(unittest.TestCase):
         else:
             min_, max_ = 90, 110
 
-        self.assertTrue(min <= weight <= max)
+        self.assertTrue(min_ <= weight <= max_)
 
 if __name__ == "__main__":
     unittest.main()
