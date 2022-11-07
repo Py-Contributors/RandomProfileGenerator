@@ -1,8 +1,9 @@
-(A+)
-(A-)
-(B+)
-(B-)
-(O+)
-(O-)
-(AB+)
-(AB-)
+A+
+A-
+B+
+B-
+O+
+O-
+AB+
+AB-
+Unknown

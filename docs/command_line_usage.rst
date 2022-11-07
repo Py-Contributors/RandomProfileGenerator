@@ -9,28 +9,32 @@ Usages:
 
 .. code-block:: bash
 
-    random-profile --help
-    Usage: random-profile [OPTIONS]
+    rp --help or random_profile -h
+    Usage: rp [OPTIONS]
 
-    random-profile -n 10 -p
+    rp -n 10 -p
 
     optional arguments:
-        -h, --help      show this help message and exit
-        -n N            Number of random profiles
-    
-        -f, --fullname  Get full name instead of first name
-        -p, --profile   Get full profile instead of first name
-        -l, --lastname  Get last name instead of first name
-        -ip, --ipv4     Get an ipv4 IP address
-        -j, --jobtitle  Get job title
-    
+        -h, --help       show this help message and exit
+        -v, --version    show program's version number and exit
+        --server         Start server
+        --port PORT      Port number
+        -n N             Number of random profiles
+        -p, --profile    Get full profile
+        -f, --firstname  Get first name
+        -l, --lastname   Get last name instead of first name
+        --fullname       Get full name instead of first name
+        --ip             Get an ipv4 IP address
+        --job            Get job title
+        --address        Get address
+
 Get Random Profile:
 -------------------
 
 .. code-block:: bash
 
     # n = number of random profiles, p = profile
-    random_profile -n 10 -p
+    rp -n 10 -p
 
 Get First Name:
 ---------------
@@ -38,7 +42,7 @@ Get First Name:
 .. code-block:: bash
 
     # n = number of random profiles, f = first name
-    random_profile -n 10 -f 
+    rp -n 10 -f 
 
 Get Last Name:
 --------------
@@ -46,7 +50,7 @@ Get Last Name:
 .. code-block:: bash
 
     # n = number of random profiles, l = last name
-    random_profile -n 10 -l
+    rp -n 10 -l
 
 Get Job Title:
 --------------
@@ -54,7 +58,7 @@ Get Job Title:
 .. code-block:: bash
 
     # n = number of random profiles, j = job title
-    random_profile -n 10 -j
+    rp -n 10 -j
 
 Get IPv4 Address:
 -----------------
@@ -62,7 +66,8 @@ Get IPv4 Address:
 .. code-block:: bash
 
     # n = number of random profiles, ip = ipv4
-    random_profile -n 10 -ip
+    rp -n 10 -ip
+
 
 Get Random Profile and Save to File:
 ------------------------------------
@@ -70,13 +75,13 @@ Get Random Profile and Save to File:
 .. code-block:: bash
 
     # n = number of random profiles, p = profile
-    random_profile -n 10 -p > random_profiles.txt
+    rp -n 10 -p > rps.txt
 
 .. code-block:: bash
 
     # save to a file
     # n = number of random profiles, p = profile
-    random_profile -n 10 -p >> random_profiles.txt
+    rp -n 10 -p >> rps.txt
 
 
 Get Random Profile version:
@@ -84,6 +89,7 @@ Get Random Profile version:
 
 .. code-block:: bash
 
-    random_profile --version
+    rp --version
 
-    random-profile 0.2.3
+    rp 0.2.3
+

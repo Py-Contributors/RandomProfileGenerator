@@ -11,7 +11,7 @@ Use cases
 - Mocking classes
 - Populating databases
 - Generating test data
-- Generating fake data for your application
+- Generating fake data for Cybersecurity
 - Generating fake data for your tests
 - Generating fake data for your documentation
 - Generating fake data for your presentation

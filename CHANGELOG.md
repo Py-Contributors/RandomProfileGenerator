@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Changelog
 
-## [0.2.4] 
+## [2.0.0] - 07-11-2022
+
+- server can be start from cli
+- More Endpoints exposed to the API/CLI
+- Code refactored
+
+
+## [1.0.0] - 05-11-2022
 
 - Beautiful command line output
 - Moved test files to random_profile to avoid flake8:402 error

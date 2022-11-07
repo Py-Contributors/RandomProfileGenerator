@@ -51,6 +51,7 @@ Contents:
    installation.rst
    command_line_usage.rst
    import_as_module.rst
+   run_as_server.rst
    changelog.rst
    roadmap.rst
    run_test_cases.rst
