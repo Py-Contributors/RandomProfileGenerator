@@ -7,6 +7,7 @@ from enums.gender import Gender
 
 random_profile = RandomProfile(num=1)
 
+
 class RandomProfileTest(unittest.TestCase):
     def test_fname(self):
         self.assertEqual(len(random_profile.first_names()), 1)
@@ -48,7 +49,7 @@ class RandomProfileTest(unittest.TestCase):
     def test_ipv4_format(self):
         ipv4 = utils.ipv4_gen()
 
-        self.assertRegex(ipv4, "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.(?!$)|$)){4}$")
+        self.assertRegex(ipv4, "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\\.(?!$)|$)){4}$")
 
     def test_random_gender(self):
         gender = utils.generate_random_gender()
@@ -98,7 +99,7 @@ class RandomProfileTest(unittest.TestCase):
     def test_weight_height(self):
         height, weight = utils.generate_random_height_weight()
 
-        min, max = 0, 0
+        min_, max_ = 0, 0
         if height < 150:
             min_, max_ = 40, 60
         elif height < 160:
@@ -113,6 +114,7 @@ class RandomProfileTest(unittest.TestCase):
             min_, max_ = 90, 110
 
         self.assertTrue(min_ <= weight <= max_)
+
 
 if __name__ == "__main__":
     unittest.main()

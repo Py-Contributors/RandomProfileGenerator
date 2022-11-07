@@ -13,6 +13,7 @@ M_PER_DEGREE = 111319.5
 os.makedirs('log', exist_ok=True)
 logging.basicConfig(filename='log/example.log', encoding='utf-8', level=logging.DEBUG)
 
+
 def generate_random_gender() -> Gender:
     return random.choice(list(Gender))
 
@@ -90,6 +91,7 @@ def generate_random_card() -> dict:
 
     return card
 
+
 def generate_random_job_level(age: int, levels) -> str:
     levels_with_ranges = [level.split(';') for level in levels]
     applicable_level = list(filter(lambda level: (int(level[1]) <= age <= int(level[2])), levels_with_ranges))
@@ -106,6 +108,7 @@ def random_coords_from_point(lat: float, lon: float, max_distance: float = 1000)
 
     return lat_, lon_
 
+
 def generate_random_city_coords(cities) -> tuple:
     city = random.choice(cities)
 
@@ -118,13 +121,15 @@ def generate_random_city_coords(cities) -> tuple:
     coords = random_coords_from_point(lat, lon)
     return name, coords
 
+
 def decdeg2dms(dd):
     mult = -1 if dd < 0 else 1
-    mnt,sec = divmod(abs(dd)*3600, 60)
-    deg,mnt = divmod(mnt, 60)
-    return mult*deg, mult*mnt, mult*sec
+    mnt, sec = divmod(abs(dd) * 3600, 60)
+    deg, mnt = divmod(mnt, 60)
+    return mult * deg, mult * mnt, mult * sec
 
-def coords_string (coords: tuple) -> str:
+
+def coords_string(coords: tuple) -> str:
     dms_lat = decdeg2dms(abs(coords[0]))
     dms_lon = decdeg2dms(abs(coords[1]))
 

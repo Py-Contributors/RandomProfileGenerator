@@ -3,6 +3,7 @@ import argparse
 from main import RandomProfile
 from enums.gender import Gender
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-n", help="Number of random profiles", type=int, default=1)
