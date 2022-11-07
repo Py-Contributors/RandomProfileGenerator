@@ -35,6 +35,7 @@ street_names = utils.load_txt_file(street_names_txt)
 job_titles = utils.load_txt_file(job_titles_txt)
 job_levels = utils.load_txt_file(job_levels_txt)
 
+
 class RandomProfile(object):
     def __init__(self, num: int = 1, gender: Gender = None):
         """
