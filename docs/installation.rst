@@ -1,8 +1,8 @@
 Installation
-============
+=========
 
 Install Via Pip(recommended):
-----------------------------
+------------
     
 .. code-block:: bash
 
@@ -11,17 +11,16 @@ Install Via Pip(recommended):
 
 
 Install from Source(Unreleased):
---------------------------------
+------------
 
 .. code-block:: bash
 
     git clone https://github.com/Py-Contributors/RandomProfileGenerator
-    git checkout main
     cd RandomProfileGenerator
     python setup.py install
 
 Test Installation:
------------------
+------------
 
 .. code-block:: bash
 

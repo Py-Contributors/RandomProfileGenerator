@@ -1,5 +1,5 @@
 Import as module
-----------------
+------------
 
 You can import the module and use it in your own scripts. 
 

@@ -4,20 +4,26 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Changelog
 
-## [2.0.0] - 07-11-2022
+## [V3.0.0] - Major Release
+
+- [x] Function names changed
+- [x] Gender can be passed as a parameter
+- [x] Credit/Debit information will be generate
+- [x]    
+
+## [v2.0.0] Major Release - 07-11-2022
 
 - server can be start from cli
 - More Endpoints exposed to the API/CLI
 - Code refactored
 
+## [V1.0.0] Major Release - 05-11-2022
 
-## [1.0.0] - 05-11-2022
-
-- Beautiful command line output
-- Moved test files to random_profile to avoid flake8:402 error
-- Following proper changelog format, added changelog file
-- Docs: Added documentation for the project
-- Bug fixed: Fixed a bug with random_profile import
+Beautiful command line output
+Moved test files to random_profile to avoid flake8:402 error
+Following proper changelog format, added changelog file
+Docs: Added documentation for the project
+Bug fixed: Fixed a bug with random_profile import
 
 ## [v0.2.3] - 13-10-2022
 

@@ -1,0 +1,5 @@
+entry-level;0;22
+intermediate;23;26
+mid-level;27;37
+senior;38;50
+executive;51;100

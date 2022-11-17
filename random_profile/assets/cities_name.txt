@@ -1,27 +1,27 @@
-Metropolis
-Eerie
-King's Landing
-Sunnydale
-Bedrock
-South Park
-Atlantis
-Mordor
-Olympus
-Dawnstar
-Balmora
-Gotham
-Springfield
-Quahog
-Smalltown
-Epicburg
-Pythonville
-Faketown
-Westworld
-Thundera
-Vice City
-Blackwater
-Oldtown
-Valyria
-Winterfell
-Braavos
-Lakeview
+Metropolis;22.574280;113.932504
+Eerie;-6.926009;107.609158
+King's Landing;-25.959064;32.578143
+Sunnydale;45.500877;-73.636201
+Bedrock;52.471576;-1.882650
+South Park;47.476139;19.077252
+Atlantis;45.667526;-122.607717
+Mordor;42.896401;-78.833217
+Olympus;37.999362;23.719025
+Dawnstar;50.938260;6.946029
+Balmora;25.197682;55.261615
+Gotham;15.525683;32.541695
+Springfield;-33.976056;18.524870
+Quahog;11.991567;8.543681
+Smalltown;41.598620;-70.549911
+Epicburg;49.291467;21.267934
+Pythonville;60.167322;24.939326
+Faketown;-37.792662;144.982700
+Westworld;35.694187;139.738699
+Thundera;-22.914784;-43.203413
+Vice City;25.843071;-80.254654
+Blackwater;48.855216;2.339327
+Oldtown;40.410661;-3.703604
+Valyria;19.421736;-99.145511
+Winterfell;55.752160;37.635513
+Braavos;41.895953;12.492432
+Lakeview;43.713095;-79.469281

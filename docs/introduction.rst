@@ -1,5 +1,5 @@
 Introduction
-============
+=========
 
 `RandomProfileGenerator` is a powerful and simple tool to generate fake data. 
 You can use it to mock classes, populate databases and much more. 
@@ -17,4 +17,10 @@ Use cases
 - Generating fake data for your presentation
 - Generating fake data for your demo
 - Generating fake data for your blog post
+
+Upcoming features
+------------
+
+- Support for more languages (Javascript)
+
 
