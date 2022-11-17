@@ -4,7 +4,7 @@ from datetime import datetime
 project = 'Random Profile Generator'
 description = 'A random profile generator for testing purposes.'
 author = 'Deeapk Raj'
-release = '0.2.3'
+release = '1.0.1'
 year = datetime.now().year
 copyright = "{} Deepak Raj".format(year)
 source_suffix = ".rst"

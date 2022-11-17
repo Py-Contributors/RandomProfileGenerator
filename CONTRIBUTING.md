@@ -50,6 +50,12 @@ We love your input! We want to make contributing to this project as easy and tra
 
 - Create a PR from our repo on Github.
 
+### Run Flake8
+
+```sh
+flake8 . --isolated  --ignore=E501,E402
+```
+
 ### Additional Notes
 
 - Any changes should be made in the `dev` branch.
