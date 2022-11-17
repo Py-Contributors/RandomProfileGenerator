@@ -36,6 +36,7 @@ args = parser.parse_args()
 if args.repeat:
     random.seed(0)
 
+
 def main():
     gender = None
     if args.male:

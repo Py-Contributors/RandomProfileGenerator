@@ -9,7 +9,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="random_profile",
-    version="2.0.0",
+    version="3.0.0",
     author="Deepak Raj",
     author_email="deepak008@live.com",
     description="Generate Random Profile",
@@ -17,11 +17,12 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     install_requires=requirements,
     data_files=[('assets', glob('random_profile/assets/*'))],
-    url="https://github.com/codePerfectPlus/Random-Profile-Generator",
+    url="https://github.com/Py-Contributors/RandomProfileGenerator",
     packages=setuptools.find_packages(),
     project_urls={"Documentation": "https://pycontributors.readthedocs.io/projects/randomprofilegenerator/en/latest/",
                   "Source": "https://github.com/Py-Contributors/RandomProfileGenerator",
-                  "Tracker": "https://github.com/Py-Contributors/RandomProfileGenerator/issues"},
+                  "Tracker": "https://github.com/Py-Contributors/RandomProfileGenerator/issues",
+                  "Funding": "https://github.com/sponsors/codePerfectPlus"},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python :: 3",
