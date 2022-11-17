@@ -43,12 +43,12 @@ job_levels = utils.load_txt_file(job_levels_txt)
 
 
 class RandomProfile(object):
-    """ Random Profile Generator 
-    
+    """ Random Profile Generator
+
     Args:
         num (int, optional): Total No. of Name You Want To Print. Defaults to 1.
         gender(str, optional): default is None. if you want to generate define gender then pass
-    
+
     Methods:
         full_profiles: Generate Full Profile
         first_names: Generate First Name
@@ -62,7 +62,7 @@ class RandomProfile(object):
         ip_address: Generate IP Address
         hair_color: Generate Hair Color
         blood_type: Generate Blood Type
-        job_title: Generate Job Title 
+        job_title: Generate Job Title
     """
     def __init__(self, num: int = 1, gender: Gender = None):
         self.num = num
