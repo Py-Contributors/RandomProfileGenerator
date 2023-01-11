@@ -29,7 +29,8 @@ overloaded_error = {"status": "429",
 
 
 @app.get("/")
-def index():
+def home():
+    """ just a home page """
     return metadata
 
 

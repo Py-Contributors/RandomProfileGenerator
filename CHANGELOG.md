@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Changelog
 
-## [V3.0.0] - Major Release
+## [V3.0.2] - Minor Release - 
+
+- [x] Updating API Documentation
+
+## [V3.0.1] - Minor Release - 18-11-2022
+
+- [x] Code refactor for better readability
+- [x] Link updated for pypi website 
+## [V3.0.0] - Major Release - 09-11-2022
 
 - [x] Function names changed
 - [x] Gender can be passed as a parameter
