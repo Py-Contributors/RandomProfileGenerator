@@ -252,7 +252,7 @@ class RandomProfile(object):
 
             profile['address'] = address
             profile['full_address'] = full_address
-            profile['job_job_experience'] = job_experience
+            profile['job_experience'] = job_experience
             profile['mother'] = mother
             profile['father'] = father
             profile['payment_card'] = card
