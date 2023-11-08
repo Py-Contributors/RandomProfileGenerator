@@ -1,0 +1,9 @@
+__title__ = 'RandomProfileGenerator'
+__package_name__ = 'random_profile'
+__version__ = '3.0.2'
+__description__ = "Python Module To Generate Random Profile Data"
+__email__ = "deepak008@live.com"
+__author__ = 'Deepak Raj'
+__github__ = 'https://github.com/Py-Contributors/RandomProfileGenerator'
+__pypi__ = 'https://pypi.org/project/random-profile/'
+__license__ = 'MIT License'

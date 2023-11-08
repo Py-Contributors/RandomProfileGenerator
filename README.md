@@ -1,10 +1,13 @@
+<p align="center">
+  <a href="https://py-contributors.github.io/audiobook/"><img src="https://capsule-render.vercel.app/api?type=rect&color=009ACD&height=100&section=header&text=RandomProfileGenerator3.0.1&fontSize=40%&fontColor=fffff" alt="website title image"></a>
+  <h2 align="center">👉 Python Module To Generate Random Profile Data 👈</h2>
+</p>
 
-<h1 align="center">
-  <a href="https://pypi.org/project/random-profile/">
-  Random Profile Generator
-</h1>
-
-<h4 align="center">Python Module To Generate Random Profile Data</h4>
+<p align="center">
+    <a href="https://twitter.com/pycontributors"><img src="https://img.shields.io/twitter/follow/pycontributors?style=social" alt="Twitter" /></a>
+    <a href="https://github.com/codeperfectplus?tab=followers"><img src="https://img.shields.io/github/followers/codeperfectplus.svg?style=social&label=Follow&maxAge=2592000"/></a>
+</p>
+</br>
 
 <p align="center">
 <img src="https://img.shields.io/pypi/v/random-profile.svg">

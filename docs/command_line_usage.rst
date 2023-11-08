@@ -80,3 +80,18 @@ Get Random Profile version:
     random_profile --version
 
     random-profile 0.2.3
+
+
+Get Only Gender Specific Profiles:
+------------
+
+To get gender specific profiles, use the `-ma` or `-fe` flags.
+
+.. code-block:: bash
+
+    # n = number of random profiles, p = profile -ma male
+    random_profile -n 10 -p -ma
+
+    # n = number of random profiles, p = profile -fe female
+    random_profile -n 10 -p -fe
+

@@ -7,17 +7,28 @@ with open("README.md", "r") as fh:
 with open("requirements.txt", "r") as fh:
     requirements = fh.read().splitlines()
 
+__title__ = 'RandomProfileGenerator'
+__package_name__ = 'random_profile'
+__version__ = '3.0.2'
+__description__ = "Python Module To Generate Random Profile Data"
+__email__ = "deepak008@live.com"
+__author__ = 'Deepak Raj'
+__github__ = 'https://github.com/Py-Contributors/RandomProfileGenerator'
+__pypi__ = 'https://pypi.org/project/random-profile/'
+__license__ = 'MIT License'
+
+
 setuptools.setup(
-    name="random_profile",
-    version="3.0.0",
-    author="Deepak Raj",
-    author_email="deepak008@live.com",
-    description="Generate Random Profile",
+    name=__package_name__,
+    version=__version__,
+    author=__author__,
+    author_email=__email__,
+    description=__description__,
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=requirements,
     data_files=[('assets', glob('random_profile/assets/*'))],
-    url="https://github.com/Py-Contributors/RandomProfileGenerator",
+    url=__github__,
     packages=setuptools.find_packages(),
     project_urls={"Documentation": "https://pycontributors.readthedocs.io/projects/randomprofilegenerator/en/latest/",
                   "Source": "https://github.com/Py-Contributors/RandomProfileGenerator",

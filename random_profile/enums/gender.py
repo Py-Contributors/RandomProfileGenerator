@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-# class syntax
 class Gender(Enum):
+    """ Gender Enum Class """
     MALE = "Male"
     FEMALE = "Female"

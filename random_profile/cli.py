@@ -7,12 +7,12 @@ from pprint import pprint
 sys.path.append('.')
 
 from random_profile.main import RandomProfile
-from random_profile.main import VERSION
+from random_profile.__about__ import __version__
 from random_profile.api import start_server
-from enums.gender import Gender
+from random_profile.enums.gender import Gender
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-v', '--version', action='version', version=VERSION)
+parser.add_argument('-v', '--version', action='version', version=__version__)
 parser.add_argument('--repeat', help='Repeat the output', action='store_true')
 parser.add_argument('--server', help='Start server', action='store_true')
 parser.add_argument('--port', help='Port number', type=int, default=8000)
