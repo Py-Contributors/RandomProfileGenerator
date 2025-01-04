@@ -1,5 +1,3 @@
-## Pull Request Template
-
 ### What have you changed in the codebase?
 <!-- 
   Briefly explain what you have changed or fixed. 
