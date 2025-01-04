@@ -42,6 +42,7 @@ street_names = utils.load_txt_file(street_names_txt)
 job_titles = utils.load_txt_file(job_titles_txt)
 job_levels = utils.load_txt_file(job_levels_txt)
 
+
 class RandomProfile:
     """
     Random Profile Generator
@@ -138,7 +139,7 @@ class RandomProfile:
 
     def generate_address(self, num: int = None) -> List[dict]:
         """
-        Generate one or more addresses. 
+        Generate one or more addresses.
         Returns a list of dictionaries with address components.
         """
         count = self.num if num is None else num
@@ -204,7 +205,7 @@ class RandomProfile:
 
     def full_profiles(self, num: int = None, gender: Gender = None) -> List[dict]:
         """
-        Generate one or more full profiles. 
+        Generate one or more full profiles.
         Each profile is a dictionary containing various personal details.
         """
         count = self.num if num is None else num
@@ -212,7 +213,7 @@ class RandomProfile:
 
         for _ in range(count):
             this_gender = utils.generate_random_gender() if gender is None else gender
-            
+
             # Generate names
             f_name = random.choice(fname_male if this_gender.value == Gender.MALE.value else fname_female)
             l_name = random.choice(lname)
@@ -221,7 +222,7 @@ class RandomProfile:
             # Generate personal data
             hair = random.choice(hair_colors)
             blood = random.choice(blood_types)
-            phone_number = f"+1-{random.randint(300, 500)}-{random.randint(800, 999)}-{random.randint(1000,9999)}"
+            phone_number = f"+1-{random.randint(300, 500)}-{random.randint(800, 999)}-{random.randint(1000, 9999)}"
             dob, age = utils.generate_dob_age()
             height, weight = utils.generate_random_height_weight()
             job_experience = utils.generate_random_job_level(age, job_levels)
