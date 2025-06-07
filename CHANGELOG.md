@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Changelog
 
+
+## [V3.0.5] - Minor Release - 07-06-2025
+
+- [x] Bug fixes
+- [x] Updated documentation
+
 ## [V3.0.5] - Minor Release - 02-01-2025
 
 - [x] Bug fixes
