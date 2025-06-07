@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Changelog
+## [V3.0.6] - Minor Release - 07-06-2025
+
+- [x] Bug fixes
+- [x] Updated documentation
+- [x] Refactored profile generation to use dataclass for improved structure and readability
+- [x] Updated tests to reflect changes in return types
+- [x] Bump version to 3.0.6
 
 ## [V3.0.5] - Minor Release - 02-01-2025
 

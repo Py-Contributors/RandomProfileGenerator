@@ -14,7 +14,7 @@ random_profile = RandomProfile(num=1)
 class RandomProfileTest(unittest.TestCase):
     # ----------------------------------------------------------------- #
     def test_fname_instance(self):
-        self.assertIsInstance(random_profile.first_names(), str)
+        self.assertIsInstance(random_profile.first_names(), List)
 
     def test_faname_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).first_names()), 10)
@@ -24,7 +24,7 @@ class RandomProfileTest(unittest.TestCase):
 
     # ----------------------------------------------------------------- #
     def test_lname_instance(self):
-        self.assertIsInstance(random_profile.last_names(), str)
+        self.assertIsInstance(random_profile.last_names(), List)
 
     def test_lname_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).last_names()), 10)
@@ -34,7 +34,7 @@ class RandomProfileTest(unittest.TestCase):
 
     # ----------------------------------------------------------------- #
     def test_full_names_instance(self):
-        self.assertIsInstance(random_profile.full_names(), str)
+        self.assertIsInstance(random_profile.full_names(), List)
 
     def test_full_names_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).full_names()), 10)
@@ -54,7 +54,7 @@ class RandomProfileTest(unittest.TestCase):
 
     # ----------------------------------------------------------------- #
     def test_ipv4_instance(self):
-        self.assertIsInstance(random_profile.ip_address(), str)
+        self.assertIsInstance(random_profile.ip_address(), List)
 
     def test_ipv4_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).ip_address()), 10)
@@ -64,7 +64,7 @@ class RandomProfileTest(unittest.TestCase):
 
     # ----------------------------------------------------------------- #
     def test_job_title_instance(self):
-        self.assertIsInstance(random_profile.job_title(), str)
+        self.assertIsInstance(random_profile.job_title(), List)
 
     def test_job_title_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).job_title()), 10)
@@ -74,7 +74,7 @@ class RandomProfileTest(unittest.TestCase):
 
     # ----------------------------------------------------------------- #
     def test_blood_type_instance(self):
-        self.assertIsInstance(random_profile.blood_type(), str)
+        self.assertIsInstance(random_profile.blood_type(), List)
 
     def test_blood_type_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).blood_type()), 10)
@@ -84,7 +84,7 @@ class RandomProfileTest(unittest.TestCase):
 
     # ----------------------------------------------------------------- #
     def test_hair_color_instance(self):
-        self.assertIsInstance(random_profile.hair_color(), str)
+        self.assertIsInstance(random_profile.hair_color(), List)
 
     def test_hair_color_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).hair_color()), 10)
@@ -94,7 +94,7 @@ class RandomProfileTest(unittest.TestCase):
 
     # ----------------------------------------------------------------- #
     def test_dob_age_instance(self):
-        self.assertIsInstance(random_profile.dob_age(), Tuple)
+        self.assertIsInstance(random_profile.dob_age(), List)
 
     def test_dob_age_with_num(self):
         self.assertEqual(len(RandomProfile(num=10).dob_age()), 10)
