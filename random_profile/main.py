@@ -10,10 +10,13 @@ import sys
 import uuid
 import random
 from typing import List, Tuple
+from dataclasses import dataclass, asdict
 
+    # Ensure the current directory is in the path to import local modules
 # Adjust your path as needed
 sys.path.append('.')
 
+from random_profile.enums import gender
 from random_profile.enums.gender import Gender
 from random_profile import utils
 from random_profile.__about__ import __version__
@@ -42,6 +45,30 @@ street_names = utils.load_txt_file(street_names_txt)
 job_titles = utils.load_txt_file(job_titles_txt)
 job_levels = utils.load_txt_file(job_levels_txt)
 
+@dataclass
+class Profile:
+    id: str
+    gender: str
+    first_name: str
+    last_name: str
+    full_name: str
+    hair_color: str
+    blood_type: str
+    job_title: str
+    dob: str
+    age: int
+    phone_number: str
+    email: str
+    height: int
+    weight: int
+    ip_address: str
+    address: dict
+    full_address: str
+    job_experience: str
+    mother: str
+    father: str
+    payment_card: dict
+    coordinates: str
 
 class RandomProfile:
     """
@@ -95,6 +122,9 @@ class RandomProfile:
         profiles = self.full_profiles()
         return profiles[index]
 
+    def _resolve_count(self, num):
+        return self.num if num is None else num
+
     def ip_address(self, num: int = None) -> List[str]:
         """Generate one or more IPv4 addresses."""
         count = self.num if num is None else num
@@ -107,21 +137,21 @@ class RandomProfile:
         count = self.num if num is None else num
         if count == 1:
             return [random.choice(job_titles)]
-        return random.choices(job_titles, k=count)
+        return random.choices(job_titles, k=self._resolve_count(num))
 
     def blood_type(self, num: int = None) -> List[str]:
         """Generate one or more blood types."""
         count = self.num if num is None else num
         if count == 1:
             return [random.choice(blood_types)]
-        return random.choices(blood_types, k=count)
+        return random.choices(blood_types, k=self._resolve_count(num))
 
     def hair_color(self, num: int = None) -> List[str]:
         """Generate one or more hair colors."""
         count = self.num if num is None else num
         if count == 1:
             return [random.choice(hair_colors)]
-        return random.choices(hair_colors, k=count)
+        return random.choices(hair_colors, k=self._resolve_count(num))
 
     def dob_age(self, num: int = None) -> List[Tuple[str, int]]:
         """Generate DOB and age tuples."""
@@ -175,14 +205,14 @@ class RandomProfile:
 
         if count == 1:
             return [random.choice(names_pool)]
-        return random.choices(names_pool, k=count)
+        return random.choices(names_pool, k=self._resolve_count(num))
 
     def last_names(self, num: int = None) -> List[str]:
         """Generate one or more last names."""
         count = self.num if num is None else num
         if count == 1:
             return [random.choice(lname)]
-        return random.choices(lname, k=count)
+        return random.choices(lname, k=self._resolve_count(num))
 
     def full_names(self, num: int = None, gender: Gender = None) -> List[str]:
         """Generate one or more full names (first + last)."""
@@ -251,31 +281,56 @@ class RandomProfile:
             card = utils.generate_random_card()
 
             # Compose the profile dict
-            profile = {
-                'id': str(uuid.uuid4()),
-                'gender': this_gender.value,
-                'first_name': f_name,
-                'last_name': l_name,
-                'full_name': full_name,
-                'hair_color': [hair],  # matching the list return type from hair_color()
-                'blood_type': [blood],  # matching the list return type from blood_type()
-                'job_title': [random.choice(job_titles)],
-                'dob': dob,
-                'age': age,
-                'phone_number': phone_number,
-                'email': f"{f_name.lower()}{l_name.lower()}@example.com",
-                'height': height,
-                'weight': weight,
-                'ip_address': [utils.ipv4_gen()],  # typically returns a list
-                'address': address_dict,
-                'full_address': full_address,
-                'job_experience': job_experience,
-                'mother': mother,
-                'father': father,
-                'payment_card': card,
-                'coordinates': coords_pretty
-            }
+            # profile = {
+            #     'id': str(uuid.uuid4()),
+            #     'gender': this_gender.value,
+            #     'first_name': f_name,
+            #     'last_name': l_name,
+            #     'full_name': full_name,
+            #     'hair_color': hair,  # matching the list return type from hair_color()
+            #     'blood_type': blood,  # matching the list return type from blood_type()
+            #     'job_title': random.choice(job_titles),
+            #     'dob': dob,
+            #     'age': age,
+            #     'phone_number': phone_number,
+            #     'email': f"{f_name.lower()}{l_name.lower()}@example.com",
+            #     'height': height,
+            #     'weight': weight,
+            #     'ip_address': utils.ipv4_gen(),  # typically returns a list
+            #     'address': address_dict,
+            #     'full_address': full_address,
+            #     'job_experience': job_experience,
+            #     'mother': mother,
+            #     'father': father,
+            #     'payment_card': card,
+            #     'coordinates': coords_pretty
+            # }
 
-            profile_list.append(profile)
+            # profile_list.append(profile)
+            profile = Profile(
+                id=str(uuid.uuid4()),
+                gender=this_gender.value if this_gender.value is not None else "",
+                first_name=f_name,
+                last_name=l_name,
+                full_name=full_name,
+                hair_color=hair,
+                blood_type=blood,
+                job_title=random.choice(job_titles),
+                dob=dob,
+                age=age,
+                phone_number=phone_number,
+                email=f"{f_name.lower()}{l_name.lower()}@example.com",
+                height=height,
+                weight=weight,
+                ip_address=utils.ipv4_gen(),
+                address=address_dict,
+                full_address=full_address,
+                job_experience=job_experience,
+                mother=mother,
+                father=father,
+                payment_card=card,
+                coordinates=coords_pretty
+            )
+            profile_list.append(asdict(profile))
 
         return profile_list
