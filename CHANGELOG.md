@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file. The format 
 
 - [x] Updating API Documentation
 - [x] Bug fixes
+- [x] Get Gender Specific Data
 
 ## [V3.0.1] - Minor Release - 18-11-2022
 
